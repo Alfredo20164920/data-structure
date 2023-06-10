@@ -43,6 +43,16 @@ class ProptotypeArray {
         return this.length;
     }
 
+    shift() {
+        const prevItem = this.data[0];
+
+        if(this.length === 0) {return undefined}
+
+        this.shiftIndex(0);
+
+        return prevItem;
+    }
+
     // Delete an specific data
     delete(index) {
         if(index > this.length) return "❌ Error";
@@ -75,5 +85,6 @@ names.unshift("Armando");
 names.unshift("Araceli");
 
 console.log(names.delete(2));
+console.log(names.shift());
 
 console.log(names.getAll());
