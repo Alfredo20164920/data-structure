@@ -42,15 +42,38 @@ class ProptotypeArray {
         this.length++;
         return this.length;
     }
+
+    // Delete an specific data
+    delete(index) {
+        if(index > this.length) return "❌ Error";
+
+        const itemDeleted = this.data[this.length - 1];
+        this.shiftIndex(index);
+        return itemDeleted;
+    }
+
+    shiftIndex(index) {
+        for(let i = index; i < this.length; i++) {
+            this.data[i] = this.data[i + 1];
+        }
+
+        delete this.data[this.length - 1];
+        this.length--;
+    }
 }
 
 const names = new ProptotypeArray();
 
 names.push("Alfredo");
 names.push("Angel");
+names.push("Andres");
 console.log(names.push("Ana"));
 
 console.log(names.pop());
-console.log(names.unshift("Aldo"))
+names.unshift("Aldo"); 
+names.unshift("Armando");
+names.unshift("Araceli");
+
+console.log(names.delete(2));
 
 console.log(names.getAll());
